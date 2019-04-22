@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block title %}one Model{% endblock %}
+{% block content %}
+
+<div class="row">
+		{% for m in models %}
+		
+				<div class="col s12 m12 l12">
+					<div class="card hoverable xlarge">
+
+					<div class="card-image">
+						<img src="{{m.image}}">
+					</div>
+
+					<div class="card-content">
+					<span class="card-title">{{m.name}}</span>
+					<span class="card-title">{{m.price}}</span>	
+						<p>{{m.description}}</p>
+					</div>
+					<div class="card-action light-blue accent-3">
+                            {% if 'username' in session %}
+							<a class="white-text" href="{{url_for('editMakeModels', make_id = make_id, model_id = m.id)}}" >Edit</a>
+							<a class="white-text" href="{{url_for('deleteMakeModels', make_id = make_id, model_id = m.id)}}">Delete</a>
+                            {% endif %}
+                    </div>
+					</div>
+				</div>
+		
+		{% endfor %}
+</div>
+
+{% endblock %}

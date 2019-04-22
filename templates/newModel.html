@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block title %}newModel{% endblock %}
+{% block content %}
+
+<h1>New Make Model</h1>
+
+<div class = 'row'>
+<form action="{{ url_for('addMakeModels', make_id = make_id )}}" method = 'post'>
+
+			<div class="input-field col s6">
+				<input name='name' id="name" type="text" class="validate">
+				<label for="name">Name:</label>
+			</div>
+
+			<div class="input-field col s6">
+				<input name='price' id="name" type="text" class="validate">
+				<label for="name">Price:</label>
+			</div>
+			
+			<div class="input-field col s12">
+				<textarea name ='description' id="textarea1" class="materialize-textarea"></textarea>
+				<label for="textarea1">Description:</label>
+			</div>
+	
+			<div class="input-field col s6">
+				<input name='image' id="image-url" type="text" class="validate">
+				<label for="image-url">IMAGE URL:</label>
+			</div>
+	 
+						
+			<div class="col s12">
+			<button class="btn waves-effect waves-light light-blue accent-3" type="submit" name="action" value='create'>Create
+					<i class="material-icons right">send</i>
+			</button>
+			</div>
+		
+			<div class="col s12 cancel">
+			<a href = "{{url_for('showMakeModels', make_id = make_id)}}" class="waves-effect waves-light btn-small light-blue accent-3">Cancel</a>
+			</div>
+
+
+</form>
+</div>
+{% endblock %}

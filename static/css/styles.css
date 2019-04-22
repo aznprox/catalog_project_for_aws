@@ -1,0 +1,16 @@
+.container{
+    margin-top: 150px;
+}
+
+.cancel{
+    margin-top: 15px;
+}
+
+.create{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.login{
+    text-align: center
+}

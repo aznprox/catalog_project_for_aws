@@ -1,0 +1,93 @@
+{% extends "main.html" %}
+{% block title %}Makes{% endblock %}
+{% block content %}
+<div class="row makes">
+
+
+<div class = 'flash'>
+	{% with messages = get_flashed_messages() %}
+{% if messages %}
+	
+<ul>
+{% for message in messages %}
+	<script>
+		M.toast({html: '{{ message }}', displayLength: '5000', classes: 'rounded'})
+	</script>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+</div>
+</div>
+<div>
+
+
+<h1>Latest Models that were added!</h1>
+
+<div class="row">
+    {% for m in models %}
+    
+            <div class="col s12 m6 l4">
+                <div class="card hoverable large">
+                <a href = "{{url_for('showMakeModelOne', make_id = m.make_id, model_id = m.id)}}">
+                <div class="card-image">
+                    <img src="{{m.image}}">
+                </div>
+                </a>
+                <div class="card-content">
+                <span class="card-title">{{m.name}}</span>
+                <span class="card-title">{{m.price}}</span>	
+                    <p>{{m.description}}</p>
+                </div>
+                <div class="card-action light-blue accent-3">
+                        {% if 'username' in session %}
+                        <a class="white-text" href="{{url_for('editMakeModels', make_id = m.make_id, model_id = m.id)}}" >Edit</a>
+                        <a class="white-text" href="{{url_for('deleteMakeModels', make_id = m.make_id, model_id = m.id)}}">Delete</a>
+                        {% endif %}
+                </div>
+                </div>
+            </div>
+    
+    {% endfor %}
+</div>
+
+<h3>Motor Companies</h3>
+
+<br>
+{% if 'username' in session %}
+<a class="create waves-effect waves-light btn light-blue accent-3" href="{{url_for('newMake')}}">CREATE NEW CAR MAKE</a>
+{% endif %}
+<br>
+
+
+<div class="row">
+{% for make in makes %}
+
+        <div class="col s12 m4 l3">
+            <div class="card hoverable small">
+            <a href = "{{url_for('showMakeModels', make_id = make.id)}}">
+            <div class="card-image">
+                <img src="{{make.image}}">
+            </div>
+            </a>
+            <div class="card-content">
+            <span class="card-title">{{make.name}}</span>
+        
+            </div>
+            <div class="card-action light-blue accent-3">
+                    {% if 'username' in session %}
+                <a class="white-text" href = "{{url_for('editMake', make_id = make.id)}}">Edit Make</a>
+                <br>
+                <a class="white-text" href = "{{url_for('deleteMake', make_id = make.id)}}">Delete Make</a> 
+                    {% endif %}
+            </div>
+            </div>
+        </div>
+
+{% endfor %}
+</div>
+        
+
+</div>
+{% endblock %}

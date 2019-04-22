@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/styles.css') }}">
+            
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>{% block title %}{% endblock title %} - Catalog Car App</title>
+
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+<div class="navbar-fixed">        
+  <nav class="card-panel light-blue accent-3 nav-extended">
+        <div class="nav-wrapper">
+          <a href="{{url_for('showMakeMenu')}}" class="brand-logo">Catalog Car App</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{{url_for('showMakeMenu')}}">Home</a></li>
+            {%if 'username' not in session %}
+            <li><a href="{{url_for('showLogin')}}">Login </a></li>
+            {% else %}
+            <li><a href="{{url_for('disconnect')}}">Logout</a></li>
+            {% endif %}
+          </ul>
+        </div>
+        <div class="nav-content">
+          <ul class="tabs tabs-transparent">
+                {% for make in makes %}
+            <li class="tab"><a href="{{url_for('showMakeModels', make_id = make.id)}}">{{make.name}}</a></li>
+                {% endfor %}
+          </ul>
+        </div>
+      </nav>
+</div>
+<div class="container">
+        {% block content %}
+        {% endblock %}
+</div>
+</body>
+</html>

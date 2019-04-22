@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block title %}deleteModel{% endblock %}
+{% block content %}
+<h1> Are you sure you want to delete {{model.name}}? </h1>
+
+<form action="{{ url_for('deleteMakeModels', make_id = model.make_id, model_id=model.id)}}" method = 'post'>
+
+        <div class="col s12">
+			<button class="btn waves-effect waves-light light-blue accent-3" type="submit" name="action" value='confirm'>Confirm
+				<i class="material-icons right">send</i>
+			</button>
+		</div>
+	
+		<div class="col s12 cancel">
+				<a href = "{{url_for('showMakeModels', make_id = model.make_id)}}" class="waves-effect waves-light btn-small light-blue accent-3">Cancel</a>
+		</div>
+
+
+
+</form>
+
+{% endblock %}
