@@ -16,7 +16,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
     email = Column(String(250), nullable=False)
-    picture = Column(String(250))
+    picture = Column(String(500))
 
 
 class Make(Base):
@@ -29,7 +29,7 @@ class Make(Base):
     String(250))
 
     image = Column(
-    String(80), nullable = False)
+    String(500), nullable = False)
 
     id = Column(
     Integer, primary_key = True)
@@ -58,7 +58,7 @@ class Model(Base):
     Integer, primary_key = True)
 
     image = Column(
-    String(250))
+    String(500))
 
     description = Column(
     String(250))
