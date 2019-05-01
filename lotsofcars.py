@@ -20,7 +20,7 @@ session = DBSession()
 
 # Create original user
 User1 = User(name="Zecl", email="zeclarcheage@gmail.com",
-             picture='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e2390bfa-7403-4119-bdcf-35a3e9fe9734/dd4m3if-c0582c7d-2920-4a1d-b831-f0c15500563e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UyMzkwYmZhLTc0MDMtNDExOS1iZGNmLTM1YTNlOWZlOTczNFwvZGQ0bTNpZi1jMDU4MmM3ZC0yOTIwLTRhMWQtYjgzMS1mMGMxNTUwMDU2M2UucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.dbYMbxkWzUTdswv0FnBx4SdhcNajCony-Rp5kJtMXmQ')
+             picture='https://cdn.discordapp.com/attachments/520026206909890568/521602715630174210/Zecl.png')
 session.add(User1)
 session.commit()
 
