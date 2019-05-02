@@ -26,7 +26,7 @@ class Make(Base):
     String(80), nullable = False)
 
     description = Column(
-    String(250))
+    String(500))
 
     image = Column(
     String(500), nullable = False)
@@ -61,7 +61,7 @@ class Model(Base):
     String(500))
 
     description = Column(
-    String(250))
+    String(500))
 
     price = Column(
     String(8))
